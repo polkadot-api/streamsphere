@@ -1,0 +1,143 @@
+@import "mixins.scss";
+@import "variables.scss";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    background-color: $dark-00;
+    color: $light-00;
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-size: 60px;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+h2 {
+    font-family: "Source Code Pro", monospace;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.8em;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+h2 span {
+    background-color: $blue-00;
+    color: $dark-00;
+    padding: 3px 8px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+.logo-text {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+
+    .source-code {
+        font-family: "Source Code Pro", monospace;
+        font-size: 1.06em;
+        font-weight: 500;
+    }
+
+    background-color: $blue-00;
+    background-image: linear-gradient(45deg, $pink-00, $blue-00);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba($color: $dark-00, $alpha: 0.4);
+    backdrop-filter: blur(3px);
+    height: var(--header-height);
+
+    .logo {
+        margin: 0 var(--margin-1);
+    }
+
+    nav {
+        margin: 0 var(--margin-1);
+
+        ul {
+            padding: 0;
+            display: flex;
+            font-family: "Source Code Pro", monospace;
+            font-weight: 400;
+            font-size: 14px;
+
+            li {
+                display: inline-block;
+                margin-left: 24px;
+
+                a {
+                    color: $light-00;
+                    text-decoration: none;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+section {
+    width: 100%;
+    height: var(--section-height);
+    padding-top: var(--header-height);
+
+    &.hero {
+        display: flex;
+        align-items: center;
+        padding-left: 10%;
+        padding-top: 0;
+        height: 100vh;
+
+        .hero-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .title {
+            width: 70%;
+            max-width: 500px;
+        }
+    }
+}
+
+footer{
+    background-color: #09080c;
+}

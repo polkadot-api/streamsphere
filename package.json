@@ -4,7 +4,6 @@
   "description": "InfinityNets landing page",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
     "watch": "nodemon --ext js,css,html",
     "watch-scss": "sass --watch scss:public",
     "test": "npm run watch & npm run watch-scss"
