@@ -60,10 +60,16 @@ h2 span {
     box-decoration-break: clone;
 }
 
-h3{
-    font-family: "Source Code Pro", monospace;
-    font-size: 30px;
-    font-weight: 100;
+h3 {
+    font-family: "Rubik", monospace;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.3em;
+    letter-spacing: 0.02em;
 }
 
 .logo-text {
@@ -153,7 +159,7 @@ section {
             max-width: 500px;
         }
 
-        .subtitle{
+        .subtitle {
             margin: 0;
         }
     }
@@ -161,18 +167,11 @@ section {
 
 #what-we-do {
     p {
-        font-size: 20px;
-        line-height: 1.3em;
-        letter-spacing: 0.02em;
         color: $light-01;
         margin: var(--margin-1) auto;
 
-        &.first {
-            font-weight: 200;
-        }
-
-        &.second {
-            font-size: 24px;
+        &.first, &.second {
+            font-size: 20px;
             font-weight: 300;
             line-height: 1.2em;
             letter-spacing: 0.03em;
@@ -193,7 +192,7 @@ section {
 #the-team {
     .content {
         .member {
-            &:nth-child(1){
+            &:nth-child(2) {
                 flex-direction: row-reverse;
             }
 
@@ -201,20 +200,67 @@ section {
             flex-wrap: wrap;
             width: 100%;
             margin: var(--margin-1) auto;
-            
-            .photo {
-                border: solid 1px $dark-02;
-                flex: 1;
-                padding: var(--margin-0);
-                // background: linear-gradient(45deg, $pink-00, $blue-00);
-                display: flex;
-                justify-content: center;
-                align-items: center;
 
-                img {
-                    max-width: 100%;
-                    min-width: 300px;
-                    // mix-blend-mode: darken;
+            .photo {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                position: relative;
+                height: 250px;
+                min-width: 250px;
+                margin-bottom: var(--margin-1);
+                margin-left: 5vw;
+                margin-right: 5vw;
+
+                .name,
+                .git,
+                .mail,
+                .last {
+                    padding: 12px;
+                    color: $dark-01;
+                    width: 90%;
+                    display: flex;
+                    height: 32px;
+                    align-items: center;
+
+                    a {
+                        height: 20px;
+                        width: 20px;
+
+                        img {
+                            height: 100%;
+                            width: auto;
+                        }
+                    }
+                }
+
+                .name {
+                    padding-right: 0;
+                    background: #e2b1e4;
+                }
+
+                .git {
+                    background: #e0c9ff;
+                    transform: translateX(-5vw);
+                }
+
+                .mail {
+                    background: #b7cbff;
+                    justify-content: end;
+                    transform: translateX(4vw);
+                }
+
+                .last {
+                    background: #8fcbff;
+                }
+
+                .picture {
+                    width: 225px;
+                    position: absolute;
+                    bottom: 0;
+                    pointer-events: none;
                 }
             }
 
@@ -223,18 +269,13 @@ section {
                 display: flex;
                 flex-direction: column;
                 min-width: 300px;
-                
-                .name{
-                    padding: var(--margin-0) var(--margin-1);
-                    margin: 0;
-                    border: solid 1px $dark-02;
-                    background: linear-gradient(90deg, $dark-02, $dark-03 );
-                    color: $blue-00;
-                }
-                p{
-                    border: solid 1px $dark-02;
-                    padding: var(--margin-1);
+                align-items: center;
+
+                p {
+                    // padding: var(--margin-1);
                     flex: auto;
+                    color: $light-01;
+                    max-width: 600px;
                 }
             }
         }
