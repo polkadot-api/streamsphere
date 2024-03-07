@@ -15,7 +15,7 @@ body {
 }
 
 html {
-    font-family: "Outfit", sans-serif;
+    font-family: "roc-grotesk", sans-serif;
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
@@ -38,6 +38,10 @@ body {
     &.no-scroll {
         overflow: hidden;
     }
+
+    display: table;
+    background: radial-gradient(at 40% 40%, rgba(13, 20, 33, 0.5), rgba(10, 9, 15, 0.1)),
+    radial-gradient(at 60% 60%, rgba(20, 33, 66, 0.5), rgba(0, 0, 0, 0));
 }
 
 a {
@@ -58,7 +62,7 @@ button {
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 55px;
     margin: 0;
     position: relative;
     overflow: hidden;
@@ -73,8 +77,9 @@ h2 {
     color: #fff;
     position: relative;
     overflow: hidden;
-    display: inline-block;
-    margin: var(--margin-0) 0;
+    display: inline-table;
+    // margin: var(--margin-1) 0 var(--margin-0) 0;
+    transform: translateX(1px);
 }
 
 h2 span {
@@ -86,15 +91,17 @@ h2 span {
 }
 
 h3 {
-    font-family: "Rubik", monospace;
-    font-size: 20px;
-    font-weight: 300;
+    font-family: "roc-grotesk-wide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 p {
     font-size: 18px;
-    line-height: 1.3em;
-    letter-spacing: 0.02em;
+    font-weight: 300;
+    line-height: 1.2em;
+    letter-spacing: 0.03em;
+    color: $light-01;
 }
 
 .logo-text {
@@ -117,9 +124,9 @@ p {
 
 .menu-btn {
     position: relative;
-    z-index: 7;
-    margin: 8px 20px;
-    height: 20px;
+    z-index: 101;
+    margin: 8px var(--margin-1);
+    height: var(--margin-1);
     width: 26px;
     display: flex;
     flex-direction: column;
@@ -189,8 +196,8 @@ p {
     height: 100vh;
     left: 0px;
     top: 0px;
-    background-color: $dark-01;
-    z-index: 6;
+    background-color: $dark-00;
+    z-index: 100;
     opacity: 1;
     overflow-y: auto;
     will-change: transform;
@@ -222,14 +229,14 @@ p {
             align-items: center;
             margin: var(--margin-0) var(--margin-1);
 
-            &::before{
+            &::before {
                 content: "";
                 position: relative;
                 display: block;
                 width: 30px;
                 height: 1px;
                 margin-right: 20px;
-                background-color: $pink-00;
+                background-color: $blue-00;
             }
 
             a {
@@ -266,7 +273,7 @@ p {
                 margin: 0;
                 margin-left: var(--margin-1);
 
-                &::before{
+                &::before {
                     display: none;
                 }
 
@@ -281,35 +288,40 @@ p {
 }
 
 header {
-    z-index: 1;
+    z-index: 10;
     position: fixed;
     top: 0;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba($color: $dark-00, $alpha: 0.5);
-    backdrop-filter: blur(4px);
+    background-color: rgba($color: $dark-00, $alpha: 0.6);
+    backdrop-filter: blur(5px);
     height: var(--header-height);
 
     .logo {
+        font-size: 18px;
         margin: 0 var(--margin-1);
     }
 }
 
 section {
     width: 100%;
-    padding: var(--margin-1);
+    padding: 40px var(--margin-1);
     max-width: 1440px;
     margin: 0 auto;
 
     &.hero {
+        position: relative;
+        z-index: 1;
         height: var(--section-height);
         display: flex;
         align-items: center;
-        padding-left: 10%;
+        padding-left: var(--margin-1);
+        // padding-left: 10%;
         padding-top: 0;
         height: 100vh;
+        width: 99%;
 
         .hero-img {
             position: absolute;
@@ -334,16 +346,7 @@ section {
 
 #what-we-do {
     p {
-        color: $light-01;
-        margin: var(--margin-1) auto;
-
-        &.first,
-        &.second {
-            font-size: 20px;
-            font-weight: 300;
-            line-height: 1.2em;
-            letter-spacing: 0.03em;
-        }
+        padding: var(--margin-1);
 
         text {
             background-color: $blue-00;
@@ -360,32 +363,41 @@ section {
 #the-team {
     .content {
         .member {
-            &:nth-child(2) {
-                flex-direction: row-reverse;
-            }
-
+            align-items: center;
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            // flex-wrap: wrap;
             width: 100%;
             margin: var(--margin-1) auto;
 
+            &:nth-child(1) {
+                margin-bottom: var(--margin-2);
+            }
+
+            &:nth-child(2) {
+                // flex-direction: row-reverse;
+                margin-top: var(--margin-2);
+                margin-bottom: 0;
+            }
+
             .photo {
-                flex: 1;
+                // flex: 1;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: space-around;
+                justify-content: space-between;
                 position: relative;
                 height: 250px;
-                min-width: 250px;
+                width: 100%;
+                // min-width: 280px;
                 margin-bottom: var(--margin-1);
-                margin-left: 5vw;
-                margin-right: 5vw;
+                // margin-left: 5vw;
+                // margin-right: 5vw;
 
                 .name,
-                .git,
-                .mail,
-                .last {
+                .first,
+                .second,
+                .third {
                     padding: 12px;
                     color: $dark-01;
                     width: 90%;
@@ -407,20 +419,21 @@ section {
                 .name {
                     padding-right: 0;
                     background: #e2b1e4;
+                    border-bottom: solid 1px;
                 }
 
-                .git {
+                .first {
                     background: #e0c9ff;
-                    transform: translateX(-5vw);
+                    transform: translateX(-16px);
                 }
 
-                .mail {
+                .second {
                     background: #b7cbff;
                     justify-content: end;
-                    transform: translateX(4vw);
+                    transform: translateX(16px);
                 }
 
-                .last {
+                .third {
                     background: #8fcbff;
                 }
 
@@ -429,6 +442,12 @@ section {
                     position: absolute;
                     bottom: 0;
                     pointer-events: none;
+
+                    &.shadow {
+                        transform: translateX(-10px);
+                        mix-blend-mode: overlay;
+                        opacity: 0.6;
+                    }
                 }
             }
 
@@ -436,17 +455,79 @@ section {
                 flex: 2;
                 display: flex;
                 flex-direction: column;
+                flex-wrap: wrap;
                 min-width: 300px;
                 align-items: center;
 
+                .socials {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    border-top: solid 1px $grid-blue;
+                    border-bottom: solid 1px $grid-blue;
+
+                    a {
+                        flex: auto;
+                        padding: 10px;
+                        display: flex;
+                        justify-content: center;
+                        border-right: solid 1px $grid-blue;
+
+                        svg{
+                            height: 24px;
+                        }
+                        &:hover{
+                            background-color: $pink-00;
+                            svg{
+                                fill: $dark-00;
+                            }
+                        }
+                    }
+
+                    img {
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+
                 p {
-                    // padding: var(--margin-1);
                     flex: auto;
-                    color: $light-01;
-                    max-width: 600px;
+                    padding: var(--margin-1);
                 }
             }
         }
+    }
+}
+
+#our-libraries {
+    .title-wrapper {
+        display: flex;
+        align-items: center;
+        border-bottom: solid 1px $grid-blue;
+        justify-content: space-between;
+
+        h3 {
+            padding: 0 var(--margin-1);
+        }
+
+        .arrow-icon {
+            border-left: solid 1px $grid-blue;
+            padding: 16px;
+            display: flex;
+
+            &:hover{
+                background-color: $pink-00;
+                svg{
+                    fill: $dark-00;
+                }
+            }
+        }
+
+    }
+
+    p {
+        padding: var(--margin-1);
+        border-bottom: solid 1px $grid-blue;
     }
 }
 
@@ -456,9 +537,49 @@ footer {
 
     .content {
         width: 100%;
-        padding: 0 var(--margin-1);
-        padding-bottom: 40px;
+        padding: var(--margin-2) var(--margin-1);
         max-width: 1440px;
         margin: 0 auto;
+
+        ul{
+            display: flex;
+            flex-direction: column;
+            padding: var(--margin-0) 0;
+            li{
+                display: block;
+                margin: 4px 0;
+                span{
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+.line {
+    z-index: 2;
+    background: $grid-blue;
+    will-change: transform;
+    pointer-events: none;
+    position: fixed;
+
+    &.line-h {
+        width: 100%;
+        height: 1px;
+        left: 0;
+        position: absolute;
+    }
+
+    &.line-v {
+        height: 100%;
+        width: 1px;
+        top: 0;
+
+        &.left{
+            left: var(--margin-1);
+        }
+        &.right{
+            right: var(--margin-1);
+        }
     }
 }
