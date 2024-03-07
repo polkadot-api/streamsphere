@@ -189,9 +189,7 @@ p {
     height: 100vh;
     left: 0px;
     top: 0px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    background-color: $dark-00;
+    background-color: $dark-01;
     z-index: 6;
     opacity: 1;
     overflow-y: auto;
@@ -210,13 +208,43 @@ p {
         transition: none;
     }
 
+    ul {
+        margin: var(--margin-2) 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        font-family: "Source Code Pro", monospace;
+        font-weight: 400;
+        font-size: 18px;
+
+        li {
+            display: inline-flex;
+            align-items: center;
+            margin: var(--margin-0) var(--margin-1);
+
+            &::before{
+                content: "";
+                position: relative;
+                display: block;
+                width: 30px;
+                height: 1px;
+                margin-right: 20px;
+                background-color: $pink-00;
+            }
+
+            a {
+                color: $light-00;
+                text-decoration: none;
+                display: block;
+            }
+        }
+    }
+
     @include horizontal-layout {
         position: relative;
         margin: 0 var(--margin-1);
         width: auto;
         height: auto;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
         background-color: transparent;
         overflow-y: auto;
         transform: none;
@@ -229,15 +257,18 @@ p {
         }
 
         ul {
-            padding: 0;
-            display: flex;
-            font-family: "Source Code Pro", monospace;
-            font-weight: 400;
+            margin: 0;
             font-size: 14px;
+            flex-direction: row;
 
             li {
                 display: inline-block;
-                margin-left: 24px;
+                margin: 0;
+                margin-left: var(--margin-1);
+
+                &::before{
+                    display: none;
+                }
 
                 a {
                     color: $light-00;
