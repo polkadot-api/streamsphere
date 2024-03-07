@@ -24,12 +24,37 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    -webkit-touch-callout: none;
+    /* Safari */
+    -webkit-user-select: none;
+    /* Chrome */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+
+    &.no-scroll {
+        overflow: hidden;
+    }
+}
+
 a {
     color: inherit;
 
     &:hover {
         color: $pink-00;
     }
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
 }
 
 h1 {
@@ -90,24 +115,118 @@ p {
     -webkit-text-fill-color: transparent;
 }
 
-header {
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    width: 100vw;
+.menu-btn {
+    position: relative;
+    z-index: 7;
+    margin: 8px 20px;
+    height: 20px;
+    width: 26px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba($color: $dark-00, $alpha: 0.5);
-    backdrop-filter: blur(4px);
-    height: var(--header-height);
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+    color: $light-00;
 
-    .logo {
-        margin: 0 var(--margin-1);
+    &:hover {
+        .m-button {
+            background: $pink-00;
+
+            &:before,
+            &:after {
+                background: $pink-00;
+            }
+        }
     }
 
-    nav {
+    .m-button {
+        /* cross thickness */
+        height: 1px;
+        width: calc(100%);
+        background: $light-00 ;
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            /* cross thickness */
+            height: 1px;
+            width: calc(100%);
+            background: $light-00 ;
+        }
+
+        &:before {
+            transform: translateY(-8px);
+        }
+
+        &:after {
+            transform: translateY(8px);
+        }
+    }
+
+    &.isCross {
+        .m-button {
+            width: 0%;
+
+            &:before {
+                transform: rotate(45deg);
+            }
+
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    @include horizontal-layout {
+        display: none;
+    }
+}
+
+.menu {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: $dark-00;
+    z-index: 6;
+    opacity: 1;
+    overflow-y: auto;
+    will-change: transform;
+    transform: translateX(0%);
+    transition: transform 0.4s cubic-bezier(0, 0, 0.1, 1);
+    box-shadow: 1px 3px 8px 2px rgb(0 0 20 / 40%);
+
+    &.hidden {
+        transform: translateX(-101%);
+        transition: transform 0.5s cubic-bezier(0, 0, 0.1, 1);
+        will-change: transform;
+    }
+
+    &.isSwipingX {
+        transition: none;
+    }
+
+    @include horizontal-layout {
+        position: relative;
         margin: 0 var(--margin-1);
+        width: auto;
+        height: auto;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background-color: transparent;
+        overflow-y: auto;
+        transform: none;
+        transition: none;
+        box-shadow: none;
+
+        &.hidden {
+            transform: none;
+            transition: none;
+        }
 
         ul {
             padding: 0;
@@ -127,6 +246,23 @@ header {
                 }
             }
         }
+    }
+}
+
+header {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba($color: $dark-00, $alpha: 0.5);
+    backdrop-filter: blur(4px);
+    height: var(--header-height);
+
+    .logo {
+        margin: 0 var(--margin-1);
     }
 }
 
@@ -170,7 +306,8 @@ section {
         color: $light-01;
         margin: var(--margin-1) auto;
 
-        &.first, &.second {
+        &.first,
+        &.second {
             font-size: 20px;
             font-weight: 300;
             line-height: 1.2em;
