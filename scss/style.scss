@@ -203,7 +203,7 @@ p {
     will-change: transform;
     transform: translateX(0%);
     transition: transform 0.4s cubic-bezier(0, 0, 0.1, 1);
-    box-shadow: 1px 3px 8px 2px rgb(0 0 20 / 40%);
+    box-shadow: 1px 3px 8px 2px rgba(13, 13, 22, 0.3);
 
     &.hidden {
         transform: translateX(-101%);
@@ -227,16 +227,14 @@ p {
         li {
             display: inline-flex;
             align-items: center;
-            margin: var(--margin-0) var(--margin-1);
+            padding: var(--margin-1);
+            border-bottom:solid 1px $grid-blue;
 
-            &::before {
-                content: "";
-                position: relative;
-                display: block;
-                width: 30px;
-                height: 1px;
-                margin-right: 20px;
-                background-color: $blue-00;
+            .icon{
+                width: 20px;
+                height: 20px;
+                transform: rotate(45deg);
+                margin-right: 28px;
             }
 
             a {
@@ -270,10 +268,11 @@ p {
 
             li {
                 display: inline-block;
-                margin: 0;
+                padding: 0;
                 margin-left: var(--margin-1);
+                border-bottom : none;
 
-                &::before {
+                .icon {
                     display: none;
                 }
 
@@ -313,7 +312,7 @@ section {
 
     &.hero {
         position: relative;
-        z-index: 1;
+        z-index: 4;
         height: var(--section-height);
         display: flex;
         align-items: center;
@@ -323,16 +322,6 @@ section {
         height: 100vh;
         width: 99%;
 
-        .hero-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
-
         .title {
             // width: 70%;
             max-width: 500px;
@@ -341,6 +330,19 @@ section {
         .subtitle {
             margin: 0;
         }
+    }
+}
+
+.hero-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+    
+    &.planet {
+        z-index: 3;
     }
 }
 
@@ -537,7 +539,7 @@ footer {
 
     .content {
         width: 100%;
-        padding: var(--margin-2) var(--margin-1);
+        padding: 48px var(--margin-1);
         max-width: 1440px;
         margin: 0 auto;
 
