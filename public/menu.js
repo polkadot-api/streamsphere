@@ -1,6 +1,6 @@
 const menuBtn = document.querySelector(".menu-btn");
 const menuNav = document.querySelector(".menu");
-const menuli = menuNav.querySelectorAll("li");
+const menuUl = menuNav.querySelector("ul");
 let touchStartY = 0;
 let touchMoveY = 0;
 let savedTouchMoveY = 0;
@@ -20,7 +20,7 @@ window.addEventListener("resize", resize);
 function resize() {
     isDesktop = window.innerWidth >= 900 ? true : false;
     isDesktop && document.body.classList.remove("no-scroll");
-    if(!isDesktop && !menuNav.classList.contains("hidden")) document.body.classList.add("no-scroll");
+    if (!isDesktop && !menuNav.classList.contains("hidden")) document.body.classList.add("no-scroll");
 }
 
 const isTouchDevice = () => {
@@ -36,7 +36,7 @@ menuNav.querySelectorAll("a").forEach(el => {
 });
 
 function toggleMenu() {
-    if(isDesktop) return;
+    if (isDesktop) return;
     menuBtn.classList.toggle("isCross");
     menuNav.classList.toggle("hidden");
     document.body.classList.toggle("no-scroll");
@@ -63,9 +63,7 @@ function menuSwipeMoveX(e) {
         menuNav.classList.add("isSwipingX");
         let v = (touchMoveX - touchStartX + swipeThreshold) / window.innerWidth;
         menuNav.style.transform = "translateX(" + v * 101 + "%)";
-        menuli.forEach(el => {
-            el.style.opacity = 1 + v * 4;
-        })
+        menuUl.style.opacity = 1 + v * 4;
     }
 }
 
@@ -74,15 +72,11 @@ function menuSwipeEndX(e) {
     touchEndX = e.changedTouches[0].clientX;
     if ((touchEndX - touchStartX) < -swipeThreshold) {
         menuNav.removeAttribute("style");
-        menuli.forEach(el => {
-            el.removeAttribute("style");
-        })
+        menuUl.removeAttribute("style");
         toggleMenu(e);
     } else {
         menuNav.style.transform = "translateX(0%)";
         menuNav.removeAttribute("style");
-        menuli.forEach(el => {
-            el.removeAttribute("style");
-        })
+        menuUl.removeAttribute("style");
     }
 }

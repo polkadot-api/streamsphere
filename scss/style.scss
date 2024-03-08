@@ -225,6 +225,7 @@ p {
         font-family: "Source Code Pro", monospace;
         font-weight: 400;
         font-size: 18px;
+        will-change: opacity;
 
         li {
             display: inline-flex;
