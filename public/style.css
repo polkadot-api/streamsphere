@@ -105,7 +105,7 @@ body {
   /* Internet Explorer/Edge */
   user-select: none;
   display: table;
-  background: radial-gradient(at 40% 40%, rgba(13, 20, 33, 0.5), rgba(10, 9, 15, 0.1)), radial-gradient(at 60% 60%, rgba(20, 33, 66, 0.5), rgba(0, 0, 0, 0));
+  background: radial-gradient(at 40% 40%, rgba(13, 20, 33, 0.5), rgba(10, 9, 15, 0.1)), radial-gradient(at 60% 60%, rgba(20, 33, 66, 0.8), rgba(0, 0, 0, 0));
 }
 body.no-scroll {
   overflow: hidden;
@@ -156,12 +156,14 @@ h2 span {
 }
 
 h3 {
+  font-size: 17px;
   font-family: "roc-grotesk-wide", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
 }
 
 p {
+  font-family: "roc-grotesk", sans-serif;
   font-size: 18px;
   font-weight: 300;
   line-height: 1.2em;
@@ -263,7 +265,7 @@ p {
   transition: none;
 }
 .menu ul {
-  margin: var(--margin-2) 0;
+  margin: var(--header-height) 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -276,6 +278,9 @@ p {
   align-items: center;
   padding: var(--margin-1);
   border-bottom: solid 1px #1c2237;
+}
+.menu ul li:nth-child(1) {
+  border-top: solid 1px #1c2237;
 }
 .menu ul li .icon {
   width: 20px;
@@ -313,7 +318,7 @@ p {
     display: inline-block;
     padding: 0;
     margin-left: var(--margin-1);
-    border-bottom: none;
+    border: none;
   }
   .menu ul li .icon {
     display: none;
@@ -357,7 +362,6 @@ section.hero {
   padding-left: var(--margin-1);
   padding-top: 0;
   height: 100vh;
-  width: 99%;
 }
 section.hero .title {
   max-width: 500px;
@@ -420,7 +424,7 @@ section.hero .subtitle {
 #the-team .content .member .photo .third {
   padding: 12px;
   color: #0d0d16;
-  width: 90%;
+  min-width: calc(100% - 32px);
   display: flex;
   height: 32px;
   align-items: center;
@@ -440,7 +444,6 @@ section.hero .subtitle {
   width: auto;
 }
 #the-team .content .member .photo .name {
-  padding-right: 0;
   background: #e2b1e4;
   border-bottom: solid 1px;
 }
@@ -471,7 +474,6 @@ section.hero .subtitle {
   flex: 2;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   min-width: 300px;
   align-items: center;
 }
@@ -487,6 +489,7 @@ section.hero .subtitle {
   padding: 10px;
   display: flex;
   justify-content: center;
+  align-items: center;
   border-right: solid 1px #1c2237;
 }
 #the-team .content .member .profile .socials a svg {
@@ -505,6 +508,50 @@ section.hero .subtitle {
 #the-team .content .member .profile p {
   flex: auto;
   padding: var(--margin-1);
+}
+@media (orientation: landscape) {
+  #the-team .content .member {
+    flex-direction: row;
+    border-top: solid 1px #1c2237;
+    border-bottom: solid 1px #1c2237;
+  }
+  #the-team .content .member:nth-child(1) {
+    margin-bottom: var(--margin-1);
+  }
+  #the-team .content .member:nth-child(2) {
+    margin-top: var(--margin-1);
+    flex-direction: row-reverse;
+  }
+  #the-team .content .member:nth-child(2) .profile {
+    flex-direction: row-reverse;
+  }
+  #the-team .content .member .photo {
+    flex: 1;
+    margin: 0;
+  }
+  #the-team .content .member .profile {
+    flex-direction: row;
+    min-height: 250px;
+  }
+  #the-team .content .member .profile .socials {
+    flex-direction: column;
+    min-height: 250px;
+    align-items: center;
+    border: 0;
+    align-self: stretch;
+  }
+  #the-team .content .member .profile .socials a {
+    border-right: solid 1px #1c2237;
+    border-left: solid 1px #1c2237;
+    border-bottom: solid 1px #1c2237;
+    width: 83.3333333333px;
+  }
+  #the-team .content .member .profile .socials a:last-child {
+    border-bottom: none;
+  }
+  #the-team .content .member .profile p {
+    padding: var(--margin-0) var(--margin-1);
+  }
 }
 
 #our-libraries .title-wrapper {

@@ -41,7 +41,7 @@ body {
 
     display: table;
     background: radial-gradient(at 40% 40%, rgba(13, 20, 33, 0.5), rgba(10, 9, 15, 0.1)),
-    radial-gradient(at 60% 60%, rgba(20, 33, 66, 0.5), rgba(0, 0, 0, 0));
+    radial-gradient(at 60% 60%, rgba(20, 33, 66, 0.8), rgba(0, 0, 0, 0));
 }
 
 a {
@@ -91,12 +91,14 @@ h2 span {
 }
 
 h3 {
+    font-size: 17px;
     font-family: "roc-grotesk-wide", sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
 }
 
 p {
+    font-family: "roc-grotesk", sans-serif;
     font-size: 18px;
     font-weight: 300;
     line-height: 1.2em;
@@ -216,7 +218,7 @@ p {
     }
 
     ul {
-        margin: var(--margin-2) 0;
+        margin: var(--header-height) 0;
         padding: 0;
         display: flex;
         flex-direction: column;
@@ -229,6 +231,9 @@ p {
             align-items: center;
             padding: var(--margin-1);
             border-bottom:solid 1px $grid-blue;
+            &:nth-child(1){
+                border-top:solid 1px $grid-blue;
+            }
 
             .icon{
                 width: 20px;
@@ -270,7 +275,7 @@ p {
                 display: inline-block;
                 padding: 0;
                 margin-left: var(--margin-1);
-                border-bottom : none;
+                border: none;
 
                 .icon {
                     display: none;
@@ -317,13 +322,10 @@ section {
         display: flex;
         align-items: center;
         padding-left: var(--margin-1);
-        // padding-left: 10%;
         padding-top: 0;
         height: 100vh;
-        width: 99%;
 
         .title {
-            // width: 70%;
             max-width: 500px;
         }
 
@@ -368,7 +370,6 @@ section {
             align-items: center;
             display: flex;
             flex-direction: column;
-            // flex-wrap: wrap;
             width: 100%;
             margin: var(--margin-1) auto;
 
@@ -402,7 +403,7 @@ section {
                 .third {
                     padding: 12px;
                     color: $dark-01;
-                    width: 90%;
+                    min-width: calc(100% - 32px);
                     display: flex;
                     height: 32px;
                     align-items: center;
@@ -419,7 +420,6 @@ section {
                 }
 
                 .name {
-                    padding-right: 0;
                     background: #e2b1e4;
                     border-bottom: solid 1px;
                 }
@@ -457,7 +457,6 @@ section {
                 flex: 2;
                 display: flex;
                 flex-direction: column;
-                flex-wrap: wrap;
                 min-width: 300px;
                 align-items: center;
 
@@ -473,6 +472,7 @@ section {
                         padding: 10px;
                         display: flex;
                         justify-content: center;
+                        align-items: center;
                         border-right: solid 1px $grid-blue;
 
                         svg{
@@ -495,6 +495,52 @@ section {
                 p {
                     flex: auto;
                     padding: var(--margin-1);
+                }
+            }
+
+            @include horizontal-layout{
+                flex-direction: row;
+                border-top: solid 1px $grid-blue;
+                border-bottom: solid 1px $grid-blue;
+                &:nth-child(1){
+                    margin-bottom: var(--margin-1);
+                }
+                &:nth-child(2){
+                    margin-top: var(--margin-1);
+                    flex-direction: row-reverse;
+                    .profile{
+                        flex-direction: row-reverse;
+                    }
+                }
+                .photo{
+                    flex: 1;
+                    margin: 0;
+                }
+
+                .profile{
+                    flex-direction: row;
+                    min-height: 250px;
+
+                    .socials{
+                        flex-direction: column;
+                        min-height: 250px;
+                        align-items: center;
+                        border: 0;
+                        align-self: stretch;
+                        a{
+                            border-right: solid 1px $grid-blue;
+                            border-left: solid 1px $grid-blue;
+                            border-bottom: solid 1px $grid-blue;
+                            width: calc(250px / 3);
+                            &:last-child{
+                                border-bottom: none;
+                            }
+                        }
+                    }
+
+                    p{
+                        padding: var(--margin-0) var(--margin-1);
+                    }
                 }
             }
         }
