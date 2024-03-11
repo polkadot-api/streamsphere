@@ -1,7 +1,4 @@
-import { Content } from './content.js';
-
 init();
-
 
 function init() {
     const images=["./assets/background_3.jpg"]
@@ -12,5 +9,6 @@ function preload(images) {
         var img=new Image();
         img.src=images[i];
     }
-    new Content(document.querySelector(".content"));
 }
+
+
