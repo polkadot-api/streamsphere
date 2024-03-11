@@ -7,9 +7,7 @@ function init() {
     const images=["./assets/background_3.jpg","./assets/background_2.png"]
     window.addEventListener("scroll", triggerScrollAnimation, { passive: true });
     preload(images, () => {
-        setTimeout(() => {
-            document.querySelector("body").classList.add("loaded");
-        }, 300);
+        document.querySelector("body").classList.add("loaded");
     });
 }
 function preload(images, callback) {
