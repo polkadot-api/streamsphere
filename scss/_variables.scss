@@ -30,7 +30,7 @@ $grid-blue: #202740;
 }
 
 
-.animate-bg::after{
+.highlight.animate::after{
     content: '';
     position: absolute;
     top: 1px;
@@ -39,16 +39,17 @@ $grid-blue: #202740;
     height: calc(100% - 3px);
     animation: a-ltr-after 2s cubic-bezier(.77,0,.18,1) forwards;
     transform: translateX(-101%);
+    will-change: transform;
 }
 
-h1.animate-bg::after{
+h1.animate::after{
     background: $pink-00;
 }
-h2.animate-bg::after{
+h2.animate::after{
     background: $blue-00;
 }
 
-.animate-bg::before{
+.highlight.animate::before, .highlight.scroll-animate::before{
     content: '';
     position: absolute;
     top: 1px;
@@ -56,18 +57,22 @@ h2.animate-bg::after{
     width: 100%;
     height: 100%;
     background: $dark-00;
-    animation: a-ltr-before 2s cubic-bezier(.77,0,.18,1) forwards;
     transform: translateX(0);
+    will-change: transform;
 }
 
-h1.animate-bg::before,
-h1.animate-bg::after{
-    animation-delay: 1s;
+.highlight.animate::before{
+    animation: a-ltr-before 2s cubic-bezier(.77,0,.18,1) forwards;
 }
 
-h2.animate-bg::before,
-h2.animate-bg::after{
-    animation-delay: 1.5s;
+h1.highlight.animate::before,
+h1.highlight.animate::after{
+    animation-delay: 0.0s;
+}
+
+h2.highlight.animate::before,
+h2.highlight.animate::after{
+    animation-delay: 0.2s;
 }
 
 @keyframes a-ltr-after{
