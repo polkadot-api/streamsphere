@@ -29,7 +29,8 @@ $grid-blue: #202740;
     }
 }
 
-h1::after, h2::after{
+
+.animate-bg::after{
     content: '';
     position: absolute;
     top: 1px;
@@ -40,14 +41,14 @@ h1::after, h2::after{
     transform: translateX(-101%);
 }
 
-h1::after{
+h1.animate-bg::after{
     background: $pink-00;
 }
-h2::after{
+h2.animate-bg::after{
     background: $blue-00;
 }
 
-h1::before, h2::before{
+.animate-bg::before{
     content: '';
     position: absolute;
     top: 1px;
@@ -59,13 +60,13 @@ h1::before, h2::before{
     transform: translateX(0);
 }
 
-h1::before,
-h1::after{
+h1.animate-bg::before,
+h1.animate-bg::after{
     animation-delay: 1s;
 }
 
-h2::before,
-h2::after{
+h2.animate-bg::before,
+h2.animate-bg::after{
     animation-delay: 1.5s;
 }
 
