@@ -137,11 +137,13 @@ button {
 }
 
 h1 {
-  font-size: 55px;
+  font-size: 50px;
   margin: 0;
   position: relative;
   overflow: hidden;
   display: inline-block;
+  line-height: 1em;
+  margin-bottom: 8px;
 }
 
 h2 {
@@ -182,18 +184,19 @@ p {
 
 .logo-text {
   font-family: "Rubik", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   background-color: #6edcf3;
   background-image: linear-gradient(45deg, #eea1e6, #6edcf3);
   background-size: 100%;
   background-repeat: repeat;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .logo-text .source-code {
   font-family: "Source Code Pro", monospace;
   font-size: 1.06em;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .menu-btn {
@@ -368,8 +371,8 @@ header .logo {
   align-items: center;
 }
 header .logo img {
-  padding-right: 10px;
-  height: 18px;
+  padding-right: 8px;
+  height: 20px;
 }
 
 section {
@@ -418,6 +421,7 @@ section.hero .subtitle {
   background-image: linear-gradient(45deg, #eea1e6, #6edcf3);
   background-size: 100%;
   background-repeat: repeat;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

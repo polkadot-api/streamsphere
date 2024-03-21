@@ -1,7 +1,7 @@
 {
-  "name": "infinity-nets",
+  "name": "streamsphere_labs",
   "version": "1.0.0",
-  "description": "InfinityNets landing page",
+  "description": "StreamSphere Labs landing page",
   "main": "app.js",
   "scripts": {
     "watch": "nodemon --ext js,css,html",
@@ -17,7 +17,7 @@
     "connect-livereload": "^0.6.1",
     "express": "^4.18.1",
     "livereload": "^0.9.3",
-    "nodemon": "^2.0.16",
+    "nodemon": "^2.0.22",
     "sass": "^1.52.3"
   }
 }
